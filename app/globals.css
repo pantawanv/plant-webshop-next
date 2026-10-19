@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+ --background: #f0f5ed;
   --foreground: #171717;
 }
 
@@ -12,15 +12,98 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  margin: 0;
 }
+
+
+nav {
+  display: flex;
+  gap: 20px;
+  padding: 20px 24px;
+  background: #c4d1bd;
+}
+
+nav a {
+  color: #245c35;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+nav a:hover {
+  color: #387b49;
+  text-decoration: underline;
+}
+
+
+.shop {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+.shop h1 {
+  font-size: 2.5rem;
+  margin-bottom: 8px;
+}
+
+.intro {
+  color: #666;
+  margin-bottom: 32px;
+}
+
+.plant-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 30px;
+  padding: 20px;
+}
+
+.plant-card {
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: white;
+}
+
+.plant-image {
+  display: block;
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.plant-info {
+  padding: 18px;
+}
+
+
+.plant-info h2 {
+  font-size: 1.25rem;
+  margin: 0 0 8px;
+  text-transform: capitalize;
+}
+
+.scientific {
+  color: #777;
+  font-style: italic;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 768px) {
+  .plant-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .plant-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
