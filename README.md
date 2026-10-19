@@ -26,35 +26,25 @@ A plant webshop built with Next.js as Part 2 of my assignment. The application a
 
 1. Clone the repository:
 
-   ```bash
    git clone https://github.com/pantawanv/plant-webshop-next
-   ```
 
 2. Navigate to the project folder:
 
-   ```bash
    cd plant-webshop-next
-   ```
 
 3. Install the dependencies:
 
-   ```bash
    npm install
-   ```
 
 4. Create a `.env.local` file in the project root and add your Perenual API key:
 
-   ```env
    PERENUAL_API_KEY=your_api_key_here
-   ```
 
    Replace `your_api_key_here` with your own API key from Perenual.
 
 5. Start the development server:
 
-   ```bash
    npm run dev
-   ```
 
 6. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
@@ -62,15 +52,11 @@ A plant webshop built with Next.js as Part 2 of my assignment. The application a
 
 To create a production build, run:
 
-```bash
 npm run build
-```
 
 To run the production build locally:
 
-```bash
 npm run start
-```
 
 ## API
 
