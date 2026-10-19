@@ -1,4 +1,4 @@
-
+import Link from 'next/link';
 
 async function getPlants() {
   const apiKey = process.env.PERENUAL_API_KEY;
@@ -46,7 +46,12 @@ export default async function ShopPage() {
       ) : (
         <div className="plant-grid">
           {plants.map((plant) => (
-            <article key={plant.id} className="plant-card">
+            <Link 
+              key={plant.id} 
+              href={`/shop/${plant.id}`}
+              className="plant-card"
+              style={{ display: 'block', textDecoration: 'none', color: 'inherit' }}
+              >
               <img
                 src={plant.default_image.regular_url}
                 alt={plant.common_name}
@@ -61,10 +66,11 @@ export default async function ShopPage() {
                     {plant.scientific_name[0]}
                   </p>
                 )}
+                
 
                
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       )}
