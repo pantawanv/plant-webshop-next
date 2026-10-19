@@ -1,13 +1,16 @@
+
+import AddToCartButton from '../../../components/AddToCartButton';
+
 export default async function PlantDetailsPage({ params }) {
-    const { id } = await params;
-    const apiKey = process.env.PERENUAL_API_KEY;
+  const { id } = await params;
+  const apiKey = process.env.PERENUAL_API_KEY;
 
-    const response = await fetch(
-       `https://perenual.com/api/v2/species/details/${id}?key=${apiKey}`,
-       { next: { revalidate: 3600 }}  
-    );
+  const response = await fetch(
+    `https://perenual.com/api/v2/species/details/${id}?key=${apiKey}`,
+    { next: { revalidate: 3600 } }
+  );
 
-   if (!response.ok) {
+  if (!response.ok) {
     const errorDetails = await response.text();
 
     console.error(
@@ -21,35 +24,40 @@ export default async function PlantDetailsPage({ params }) {
     );
   }
 
-    const plant = await response.json();
+  const plant = await response.json();
 
-    return(
-        <main className="shop">
-            <h1>{plant.common_name}</h1>
-            {plant.default_image?.regular_url && (
-                <img
-                    src={plant.default_image.regular_url}
-                    alt={plant.common_name}
-                    style={{ width: '100%', maxWidth: '500px' }}
-                />
-            )}
+  return (
+    <main className="shop">
+    <div className="flex flex-col items-center text-center">
+      <h1>{plant.common_name}</h1>
 
-            <p>
-                Scientific name: {plant.scientific_name?.[0] ?? 'Unknown'}
-            </p>
+      {plant.default_image?.regular_url && (
+        <img
+          src={plant.default_image.regular_url}
+          alt={plant.common_name}
+          style={{ width: '400px', height: '400px', objectFit: 'cover' }}
+          className="mt-4 mb-4"
+        />
+      )}
 
-            <p>
-                Cycle: {plant.cycle ?? 'Unknown'}
-            </p>
+      <p>
+        Scientific Name: {plant.scientific_name?.[0] ?? 'Unknown'}
+      </p>
 
-            <p>
-                Watering: {plant.watering ?? 'Unknown'}
-            </p>
+      <p>Cycle: {plant.cycle ?? 'Unknown'}</p>
 
-            <p>
-                Sunlight: {plant.sunlight?.join(', ') ?? 'Unknown'}
-            </p>
-        </main>
-    );
+      <p>Watering: {plant.watering ?? 'Unknown'}</p>
 
+      <p>
+        Sunlight: {plant.sunlight?.join(', ') ?? 'Unknown'}
+      </p>
+
+      <p>Price: 79 DKK</p>
+
+      <div className="mt-4">
+        <AddToCartButton plant={plant} />
+      </div>
+      </div>
+    </main>
+  );
 }

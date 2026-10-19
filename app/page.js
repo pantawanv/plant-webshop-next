@@ -1,9 +1,10 @@
 import Link from "next/link";
 
+
 export default function Home() {
   return (
     <main>
-      <h1 className="text-3xl mb-4 mt-8 text-center">Welcome to my plant webshop🌱</h1>
+      <h1 className="text-4xl mb-8 mt-8 text-center">Welcome to my plant webshop🌱</h1>
 
       <img
         src="/orchids.jpg"

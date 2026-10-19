@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import AddToCartButton from "../../components/AddToCartButton";
 
 async function getPlants() {
   const apiKey = process.env.PERENUAL_API_KEY;
@@ -67,7 +68,7 @@ export default async function ShopPage() {
                   </p>
                 )}
                 
-
+                <AddToCartButton plant={plant} />
                
               </div>
             </Link>

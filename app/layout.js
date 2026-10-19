@@ -1,17 +1,16 @@
 import Link from 'next/link'
 import './globals.css';
+import ReduxProvider from '../components/ReduxProvider';
+import Navbar from '../components/Navbar';
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">  
       <body>
-        <nav>
-          <Link href="/">Home</Link>
-          <Link href="/shop">Shop</Link>
-          <Link href="/cart">Cart</Link>
-        </nav>
-
+        <ReduxProvider>
+          <Navbar />
         {children}
+        </ReduxProvider>
       </body>
     </html>
   )
